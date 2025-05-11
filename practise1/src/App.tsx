@@ -9,6 +9,7 @@ import { UserForm } from "./components/UserForm";
 import Select from "./components/Select";
 import Input from "./components/Input";
 import Select2 from "./components/Select2";
+import UserCard from "./components/UserCard";
 
 
 type Country = {
@@ -103,7 +104,7 @@ const App = () => {
       <div className="p-8 bg-blue-500 w-full">
 
         <div>
-          <Select2 
+          <Select2
             label="Choose a Country"
             options={countries}
             optionLabel="name"
@@ -114,10 +115,18 @@ const App = () => {
           <p className="mt-4">
             Selected: <strong>{selectedCountry.name}</strong> ({selectedCountry.code})
           </p>
-        </div>  
+        </div>
 
 
       </div>
+
+    <div className="p-8 bg-blue-600 w-full">
+
+      <UserCard user={{ id: 1, name: "Anish", role: "admin", permissions: ["read", "write"] }} />
+      <UserCard user={{ id: 2, name: "Kumar", role: "guest", expiry: new Date() }} />
+      <UserCard user={{ id: 3, name: "John", role: "admin", permissions: ["read", "write"] }} />
+
+    </div>
 
 
 
