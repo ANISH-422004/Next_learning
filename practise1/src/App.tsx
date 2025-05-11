@@ -8,9 +8,24 @@ import List from "./components/List";
 import { UserForm } from "./components/UserForm";
 import Select from "./components/Select";
 import Input from "./components/Input";
+import Select2 from "./components/Select2";
+
+
+type Country = {
+  id: number;
+  name: string;
+  code: string;
+};
+
+const countries: Country[] = [
+  { id: 1, name: "India", code: "IN" },
+  { id: 2, name: "United States", code: "US" },
+  { id: 3, name: "Germany", code: "DE" },
+];
+
 
 const App = () => {
-
+  const [selectedCountry, setSelectedCountry] = useState<Country>(countries[0]);
   const [name, setName] = useLocalStorage<string>("username", "Anish");
   const [user, setUser] = useState<string | number>("");
   const [email, setEmail] = useState<string>("")
@@ -83,7 +98,32 @@ const App = () => {
           palaceholder="Enter your email"
         />
       </div>
+
+
+      <div className="p-8 bg-blue-500 w-full">
+
+        <div>
+          <Select2 
+            label="Choose a Country"
+            options={countries}
+            optionLabel="name"
+            optionValue="code"
+            onChange={(country) => setSelectedCountry(country)}
+          />
+
+          <p className="mt-4">
+            Selected: <strong>{selectedCountry.name}</strong> ({selectedCountry.code})
+          </p>
+        </div>  
+
+
+      </div>
+
+
+
+
     </>
+
 
   )
 
