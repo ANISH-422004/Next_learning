@@ -1,11 +1,19 @@
 import Button from "./components/Button";
 import Card from "./components/Card";
 import { useLocalStorage } from "./hooks/useLocalStorage";
-import {useTheme } from "./context/ThemeContext";
+import { useTheme } from "./context/ThemeContext";
+import { useState } from "react";
+import type { Listobj } from "./components/List";
+import List from "./components/List";
 
 const App = () => {
 
   const [name, setName] = useLocalStorage<string>("username", "Anish");
+
+  const [list, setList] = useState<Array<Listobj>>([
+    { title: "Anish", description: "lorem10" },
+    { title: "Kumar", description: "lorem20" },
+  ])
 
   console.log(
     "Name from local storage: ", name
@@ -36,6 +44,10 @@ const App = () => {
         <Button onClick={toggleTheme} variant="primary" text="ToggleTheme" />
 
       </Card>
+
+
+      <List list={list} />
+
     </div>
   )
 
