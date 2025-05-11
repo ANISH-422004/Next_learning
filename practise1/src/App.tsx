@@ -5,6 +5,7 @@ import { useTheme } from "./context/ThemeContext";
 import { useState } from "react";
 import type { Listobj } from "./components/List";
 import List from "./components/List";
+import { UserForm } from "./components/UserForm";
 
 const App = () => {
 
@@ -34,21 +35,30 @@ const App = () => {
   console.log(theme)
 
   return (
-    <div className="h-screen w-full bg-gray-100 flex items-center justify-center">
-      <Button onClick={handelClick} variant="primary" text="click Me  " />
-      <Button onClick={handelClick} variant="secondary" text="click Me  " />
-      <Card title="Profile 1" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, provident!" footer={"footer Section"}   >
-        {/* card(titel , description , {[ReactNode ,ReactNode , ReactNode ]}) */}
-        <p>Card Content</p>
+    <>
+      <div className="h-screen w-full bg-gray-100 flex items-center justify-center">
         <Button onClick={handelClick} variant="primary" text="click Me  " />
-        <Button onClick={toggleTheme} variant="primary" text="ToggleTheme" />
+        <Button onClick={handelClick} variant="secondary" text="click Me  " />
+        <Card title="Profile 1" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, provident!" footer={"footer Section"}   >
+          {/* card(titel , description , {[ReactNode ,ReactNode , ReactNode ]}) */}
+          <p>Card Content</p>
+          <Button onClick={handelClick} variant="primary" text="click Me  " />
+          <Button onClick={toggleTheme} variant="primary" text="ToggleTheme" />
 
-      </Card>
+        </Card>
 
 
-      <List list={list} />
+        <List list={list} />
 
-    </div>
+      </div>
+
+
+<div className="p-8 bg-blue-200 w-full">
+  <UserForm />
+</div>
+
+    </>
+
   )
 
 }
