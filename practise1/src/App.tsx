@@ -7,12 +7,13 @@ import type { Listobj } from "./components/List";
 import List from "./components/List";
 import { UserForm } from "./components/UserForm";
 import Select from "./components/Select";
+import Input from "./components/Input";
 
 const App = () => {
 
   const [name, setName] = useLocalStorage<string>("username", "Anish");
   const [user, setUser] = useState<string | number>("");
-
+  const [email, setEmail] = useState<string>("")
   const [list, setList] = useState<Array<Listobj>>([
     { title: "Anish", description: "lorem10" },
     { title: "Kumar", description: "lorem20" },
@@ -20,7 +21,7 @@ const App = () => {
 
   const users = ["John", "Jane", "Paul", "Sara"];
 
-  const handelChangeUser = (user : string | number): void => {
+  const handelChangeUser = (user: string | number): void => {
     setUser(user)
 
   }
@@ -68,10 +69,20 @@ const App = () => {
         <UserForm />
       </div>
 
-      <div className="p-8 bg-blue-200 w-full">
+      <div className="p-8 bg-blue-300 w-full">
         <Select options={users} label="SELECT USERS" onChange={handelChangeUser} />
       </div>
 
+
+      <div className="p-8 bg-blue-400 w-full">
+        <Input
+          label="email"
+          type="email"
+          value={email}
+          onChange={(email: string) => setEmail(email)}
+          palaceholder="Enter your email"
+        />
+      </div>
     </>
 
   )
