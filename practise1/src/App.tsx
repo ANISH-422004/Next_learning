@@ -6,15 +6,25 @@ import { useState } from "react";
 import type { Listobj } from "./components/List";
 import List from "./components/List";
 import { UserForm } from "./components/UserForm";
+import Select from "./components/Select";
 
 const App = () => {
 
   const [name, setName] = useLocalStorage<string>("username", "Anish");
+  const [user, setUser] = useState<string | number>("");
 
   const [list, setList] = useState<Array<Listobj>>([
     { title: "Anish", description: "lorem10" },
     { title: "Kumar", description: "lorem20" },
   ])
+
+  const users = ["John", "Jane", "Paul", "Sara"];
+
+  const handelChangeUser = (user : string | number): void => {
+    setUser(user)
+
+  }
+
 
   console.log(
     "Name from local storage: ", name
@@ -32,7 +42,8 @@ const App = () => {
 
 
   const { theme, toggleTheme } = useTheme()
-  console.log(theme)
+  // console.log(theme)
+  console.log(user)
 
   return (
     <>
@@ -53,9 +64,13 @@ const App = () => {
       </div>
 
 
-<div className="p-8 bg-blue-200 w-full">
-  <UserForm />
-</div>
+      <div className="p-8 bg-blue-200 w-full">
+        <UserForm />
+      </div>
+
+      <div className="p-8 bg-blue-200 w-full">
+        <Select options={users} label="SELECT USERS" onChange={handelChangeUser} />
+      </div>
 
     </>
 
