@@ -10,6 +10,7 @@ import Select from "./components/Select";
 import Input from "./components/Input";
 import Select2 from "./components/Select2";
 import UserCard from "./components/UserCard";
+import Clock from "./components/Clock";
 
 
 type Country = {
@@ -129,7 +130,11 @@ const App = () => {
     </div>
 
 
+    <div className="p-8 bg-blue-700 w-full">
 
+    <Clock/>
+
+    </div>
 
     </>
 
