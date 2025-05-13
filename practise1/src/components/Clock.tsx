@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const formateTime = (sec: number): string => {
     const hrs = String(Math.floor(sec / 3600)).padStart(2, "0"); // OP Example: 01
