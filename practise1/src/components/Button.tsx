@@ -29,7 +29,7 @@ const Button: React.FC<ButtonProps> = ({ text, onClick, disabled = false, varian
   // - variant: string (primary, secondary, etc.)
 
   return (
-    <button className={`${variant === "primary" ? variantClass.primary : variantClass.primary} text-white font-bold py-2 px-4 rounded m-1`} onClick={onClick} disabled={disabled}>
+    <button className={`${variant === "primary" ? variantClass.primary : variantClass.secondary} text-white font-bold py-2 px-4 rounded m-1`} onClick={onClick} disabled={disabled}>
       {text}
     </button>
   );

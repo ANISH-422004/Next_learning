@@ -66,8 +66,8 @@ const App = () => {
   return (
     <>
       <div className="h-screen w-full bg-gray-100 flex items-center justify-center">
-        <Button onClick={handelClick} variant="primary" text="click Me  " />
-        <Button onClick={handelClick} variant="secondary" text="click Me  " />
+        <Button onClick={handelClick} variant="primary" text="click 1  " />
+        <Button onClick={handelClick} variant="secondary" text="click 2  " />
         <Card title="Profile 1" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, provident!" footer={"footer Section"}   >
           {/* card(titel , description , {[ReactNode ,ReactNode , ReactNode ]}) */}
           <p>Card Content</p>
